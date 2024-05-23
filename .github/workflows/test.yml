@@ -1,8 +1,8 @@
 name: test project
-on: push
+on: push # Define your workflow trigger (e.g., push to the repo)
 jobs:
    test:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latest # preferred runner OS
       steps:
          - name: get my code
            uses: actions/checkout@v3
@@ -12,6 +12,6 @@ jobs:
            with:
               node-version: 18
          - name: install dependency
-           run: yarn ci
+           run: yarn install --frozen-lockfile
          - name: run tests
            run: yarn test
