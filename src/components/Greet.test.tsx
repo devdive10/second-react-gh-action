@@ -6,6 +6,6 @@ describe('Greet()', () => {
       // Arrange
       render(<Greet />);
       const el = screen.getByText('Hello People!');
-      expect(el).not.toBeVisible();
+      expect(el).toBeVisible();
    });
 });
