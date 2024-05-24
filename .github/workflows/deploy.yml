@@ -1,7 +1,7 @@
 name: test project
 on: push # Define your workflow trigger (e.g., push to the repo)
 jobs:
-   test:
+   test: # first job
       runs-on: ubuntu-latest # preferred runner OS
       steps:
          - name: get my code
@@ -15,8 +15,9 @@ jobs:
            run: yarn install --frozen-lockfile
          - name: run tests
            run: yarn test
-   deploy:
+   deploy: # second job
       runs-on: ubuntu-latest
+      needs: test # if this job dpends on the other job (optional)
       steps:
          - name: get my code
            uses: actions/checkout@v3
